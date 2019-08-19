@@ -15,7 +15,7 @@ import { MovimientosComponent } from './componentes/movimientos/movimientos.comp
 import { PagosComponent } from './componentes/pagos/pagos.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { TransferenciaComponent } from './componentes/transferencia/transferencia.component';
-import { PagoComponent } from './componentes/pago/pago.component';
+import { RegistrarComponent } from './componentes/registrar/registrar.component';
 
 
 
@@ -24,12 +24,11 @@ import { PagoComponent } from './componentes/pago/pago.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    TranferenciaComponent,
     MovimientosComponent,
     PagosComponent,
     PrincipalComponent,
     TransferenciaComponent,
-    PagoComponent
+    RegistrarComponent
     
   ],
   imports: [
