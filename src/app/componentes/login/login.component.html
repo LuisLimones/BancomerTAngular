@@ -1,1 +1,37 @@
-<p>login works!</p>
+
+    <div class="row">
+      <div class="col-12">
+          <div class="jumbotron jumbotron-fluid">
+              <div class="container">
+                <h1 class="display-4"><b>Bancomer <span style="color: red;">T</span></b></h1>
+                <p class="lead" style="color: red;"><b>El banco que se te acerca</b></p>
+              </div>
+            </div>
+      </div>
+      <div class="container-login">
+         <div class="col-12">
+           <div class="card">
+          <div class="card-body">
+            <h5 class="card-title text-center" style="color: red;">Login</h5>
+            <form class="form-signin" [formGroup]="login" (ngSubmit)='logearte()'>
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Ingresa tu Numero de tarjeta" formControlName="cardnumber" required autofocus>
+              </div>
+              <br>
+              <div class="form-label-group">
+
+                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" formControlName="password" required>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+           
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
+              <hr class="my-4">
+              <button class="btn btn-lg btn-success btn-block text-uppercase" (click)="crearusuario()">Registrarse</button>
+            </form>
+          </div>
+          </div>
+         </div>
+	</div>
+</div>
