@@ -21,4 +21,10 @@ export class BancaService {
   postRegistrar(ca: Cuentahabiente): Observable<Cuentahabiente>{
     return this.http.post<Cuentahabiente>(this.url+'registrar', ca, this.httpOptions);
   }
+
+  login(data): Observable<any>{
+    return this.http.post<any>(this.url+'login', data, this.httpOptions);
+  }
+
 }
+

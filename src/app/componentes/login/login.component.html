@@ -13,14 +13,15 @@
            <div class="card">
           <div class="card-body">
             <h5 class="card-title text-center" style="color: red;">Login</h5>
-            <form class="form-signin" [formGroup]="login" (ngSubmit)='logearte()'>
+            <form class="form-signin" (ngSubmit)='logearte()' #loginForm="ngForm">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Ingresa tu Numero de tarjeta" formControlName="cardnumber" required autofocus>
+                <input type="text" id="tarjeta" class="form-control" placeholder="Ingresa tu Numero de tarjeta" 
+                [(ngModel)]="datos.tarjeta" name="tarjeta" #tarjeta="ngModel" required autofocus>
               </div>
               <br>
               <div class="form-label-group">
-
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" formControlName="password" required>
+                <input type="password" id="password" class="form-control" placeholder="Contraseña" 
+                [(ngModel)]="datos.password" name="password" #password="ngModel" required>
               </div>
 
               <div class="custom-control custom-checkbox mb-3">
@@ -28,7 +29,7 @@
               </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
               <hr class="my-4">
-              <button class="btn btn-lg btn-success btn-block text-uppercase" (click)="crearusuario()">Registrarse</button>
+              <!-- <button class="btn btn-lg btn-success btn-block text-uppercase" (click)="crearusuario()">Registrarse</button> -->
             </form>
           </div>
           </div>
