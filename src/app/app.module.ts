@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPopper } from 'angular-popper';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
@@ -16,6 +16,8 @@ import { PagosComponent } from './componentes/pagos/pagos.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { TransferenciaComponent } from './componentes/transferencia/transferencia.component';
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
+import { InterceptorService } from './servicios/interceptor.service';
+import { BancaService } from './servicios/banca.service';
 
 
 
@@ -46,7 +48,14 @@ import { RegistrarComponent } from './componentes/registrar/registrar.component'
       preventDuplicates: true,
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
+    BancaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
