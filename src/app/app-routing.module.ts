@@ -11,10 +11,13 @@ import { RegistrarComponent } from './componentes/registrar/registrar.component'
 
 
 const routes: Routes = [
+  {path: '', component: LoginComponent },
   {path: 'registrar', component: RegistrarComponent },
+  {path: 'login', component: LoginComponent},
   {path: '**', redirectTo: "" }
  
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
