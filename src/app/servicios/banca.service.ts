@@ -26,5 +26,13 @@ export class BancaService {
     return this.http.post<any>(this.url+'login', data, this.httpOptions);
   }
 
+  postPagos(data): Observable<any>{
+    return this.http.post<any>(this.url+'pagos', data, this.httpOptions);
+  }
+
+  getActual(): Observable<Cuentahabiente>{
+    return this.http.get<Cuentahabiente>(this.url+'actual', this.httpOptions);
+  }
+
 }
 

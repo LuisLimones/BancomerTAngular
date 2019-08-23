@@ -1,1 +1,29 @@
-<p>transferencia works!</p>
+<h3>Pagos Y Trasnferencias</h3>
+<div class="container">
+    <form (ngSubmit)="submitPagos()" #pagosForm>
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <select name="tipo" id="tipo" [(ngModel)]="datos.tipo" #tipo="ngModel" class="form-control" 
+            #tipo="ngModel">
+                <option value="Pago">Pago</option>
+                <option value="Transferencia">Transferencia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="receptor">Numero De Cuenta A Pagar/Transferir</label>
+            <input type="text" name="receptor" id="receptor" [(ngModel)]="datos.receptor" #receptor="ngModel"
+            class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="concepto">Concepto De Pago/Transferencia</label>
+            <input type="text" name="concepto" id="concepto" [(ngModel)]="datos.concepto" #concepto="ngModel"
+            class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad A Pagar/Transferir</label>
+            <input type="text" name="cantidad" id="cantidad" [(ngModel)]="datos.cantidad" #concepto="ngModel"
+            class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Realizas Trasnaccion</button>
+    </form>
+</div>

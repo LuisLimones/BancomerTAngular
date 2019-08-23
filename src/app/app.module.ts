@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './componentes/login/login.component';
 import { MovimientosComponent } from './componentes/movimientos/movimientos.component';
-import { PagosComponent } from './componentes/pagos/pagos.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { TransferenciaComponent } from './componentes/transferencia/transferencia.component';
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
@@ -27,7 +26,6 @@ import { BancaService } from './servicios/banca.service';
     AppComponent,
     LoginComponent,
     MovimientosComponent,
-    PagosComponent,
     PrincipalComponent,
     TransferenciaComponent,
     RegistrarComponent
