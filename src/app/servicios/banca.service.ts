@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cuentahabiente } from '../modelos/cuentahabiente';
+import { Movimiento } from '../modelos/movimiento';
 import { servidorURL } from '../globales/globales';
 
 @Injectable({
@@ -34,5 +35,17 @@ export class BancaService {
     return this.http.get<Cuentahabiente>(this.url+'actual', this.httpOptions);
   }
 
+  getMovimientos(): Observable<any>{
+    return this.http.get<any>(this.url+'movimientos', this.httpOptions);
+  }
+
+  checkLogin(): Observable<any>{
+    return this.http.get<any>(this.url+'checkLogin', this.httpOptions);
+  }
+
+  checkAdmin(): Observable<any>{
+    return this.http.get<any>(this.url+'checkAdmin', this.httpOptions);
+  }
 }
+
 

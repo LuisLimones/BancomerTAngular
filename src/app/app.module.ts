@@ -17,6 +17,8 @@ import { TransferenciaComponent } from './componentes/transferencia/transferenci
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
 import { InterceptorService } from './servicios/interceptor.service';
 import { BancaService } from './servicios/banca.service';
+import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 
 
@@ -52,7 +54,9 @@ import { BancaService } from './servicios/banca.service';
       useClass: InterceptorService,
       multi: true
     },
-    BancaService
+    BancaService,
+    AuthGuard,
+    AdminGuard
   ],
   bootstrap: [AppComponent]
 })

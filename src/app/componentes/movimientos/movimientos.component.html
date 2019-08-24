@@ -1,1 +1,22 @@
-<p>movimientos works!</p>
+<div class="container">
+    <h3>Movimientos</h3>
+    <table class="table table-dark">
+        <thead>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Concepto</th>
+            <th scope="col">Razon</th>
+            <th scope="col">Cantidad</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let mov of movimientos">
+                <td>{{mov.created_at}}</td>
+                <td>{{mov.tipo}}</td>
+                <td>{{mov.concepto}}</td>
+                <td *ngIf="mov.abonante != cuentahabiente.nombre">{{mov.abonante}}</td>
+                <td *ngIf="mov.receptor != cuentahabiente.nombre">{{mov.receptor}}</td>
+                <td>${{mov.cantidad}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
