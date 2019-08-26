@@ -1,0 +1,39 @@
+.navbar{
+    color: white;
+    background:  rgba(67,100,161,1) 49%;
+}
+
+.navbar a{
+    color: white;
+    font-size: 24px;
+}
+
+.container{
+    height: 100%;
+    padding-top: 20px;
+    background: white;
+}
+
+.card-container{
+    padding-top: 25px;
+    padding-left: 15px;
+}
+
+.row-style{
+    padding-top: 90px;
+    padding-bottom: 290px;
+    padding-left: 15px;
+    padding-right: 35px;
+}
+
+.btn-style{
+    width: 50%;
+}
+.card-body{
+    color: white;
+    background: rgba(67,100,161,1) 49%;
+}
+.card-footer{
+    color: white;
+    background: rgba(67,100,161,1) 49%;
+}

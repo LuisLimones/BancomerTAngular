@@ -1,0 +1,26 @@
+.container{
+    width: 450px;
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    padding-top: 5px;
+    background: white;
+ }
+ .navbar{
+    color: white;
+    background:  #4364a1;
+}
+
+.navbar a{
+    color: white;
+    font-size: 24px;
+}
+
+form{
+  color:  #4364a1;
+  padding-bottom: 5px;
+}
+
+button{
+    padding-bottom: 5px;
+}

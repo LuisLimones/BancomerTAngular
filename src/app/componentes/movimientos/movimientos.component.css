@@ -1,0 +1,28 @@
+.navbar{
+    color: white;
+    background:  rgba(67,100,161,1) 49%;
+}
+
+.navbar a{
+    color: white;
+    font-size: 24px;
+}
+
+.container{
+    height: 100%;
+    padding-top: 20px;
+    background: white;
+}
+
+table{
+    border:#4364a1 solid 2px;
+}
+
+thead{
+    color: white;
+}
+
+tr{
+    border:#4364a1 solid 2px;
+    background: white;
+}

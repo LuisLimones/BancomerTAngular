@@ -1,5 +1,11 @@
-<h3>Pagos Y Trasnferencias</h3>
+<nav class="navbar">
+        <a class="navbar-brand" href="#">Bancomer <span style="color: red;">T</span></a>
+        <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-primary my-2 my-sm-0" type="submit">Salir</button>
+            </form>
+    </nav>
 <div class="container">
+        <h3 style="text-align: center;">Pagos y Transferencias</h3>
     <form (ngSubmit)="submitPagos()" #pagosForm>
         <div class="form-group">
             <label for="tipo">Tipo</label>
@@ -24,6 +30,6 @@
             <input type="text" name="cantidad" id="cantidad" [(ngModel)]="datos.cantidad" #concepto="ngModel"
             class="form-control">
         </div>
-        <button type="submit" class="btn btn-success">Realizas Trasnaccion</button>
+        <button type="submit" class="btn btn-success">Realizar Transacción</button>
     </form>
 </div>
