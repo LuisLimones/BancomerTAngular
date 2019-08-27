@@ -1,2 +1,9 @@
-
+<div>
+    <nav class="navbar">
+        <a class="navbar-brand" [routerLink]="['/principal']">Bancomer <span style="color: red;">T</span></a>
+        <form class="form-inline my-2 my-lg-0">
+            <a class="btn btn-primary my-2 my-sm-0" (click)="logout()">Salir</a>
+        </form>
+    </nav>
+</div>
 <router-outlet></router-outlet>

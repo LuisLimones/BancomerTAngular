@@ -1,0 +1,9 @@
+.navbar{
+    color: white;
+    background:  rgba(67,100,161,1) 49%;
+}
+
+.navbar a{
+    color: white;
+    font-size: 24px;
+}

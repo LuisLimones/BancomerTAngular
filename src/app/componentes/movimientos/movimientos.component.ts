@@ -34,7 +34,6 @@ export class MovimientosComponent implements OnInit {
 
   getMovimientos(){
     this.bs.getMovimientos().subscribe(data => {
-      console.log(data);
       if(data != null){
         this.movimientos=data;
         this.movimientos.forEach(element => {
@@ -42,7 +41,6 @@ export class MovimientosComponent implements OnInit {
             element.created_at=element.created_at.substring(0, 10);
           }
         });
-        console.log(this.movimientos);
       }
       else{
         this.toastr.error('No Tiene Movimientos','',{ timeOut:5000});
@@ -52,5 +50,4 @@ export class MovimientosComponent implements OnInit {
   getCuentahabiente(){
     this.bs.getActual().subscribe(data => this.cuentahabiente = data);
   }
-
 }

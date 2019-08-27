@@ -1,11 +1,6 @@
-<nav class="navbar">
-    <a class="navbar-brand" href="#">Bancomer <span style="color: red;">T</span></a>
-    <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Salir</button>
-        </form>
-</nav>
+
 <div class="container">
-<h1 style="text-align: center;">Bienvenido "Nombre de usuario"</h1>
+<h1 style="text-align: center;">Bienvenido {{cuentahabiente.nombre}}</h1>
 <div class="row row-style">
 <div class="col-8">
              <h3>¿Que deseas hacer?</h3>
@@ -16,15 +11,9 @@
      <div class="card-container">
         <div class="card">
                 <div class="card-header" style="background-color: red; color:white;">Saldo de cuenta</div>
-                <div class="card-body" style="">Tu saldo actual es de:</div> 
+                <div class="card-body">Tu saldo actual es de:</div> 
                 <div class="card-footer" style="text-align:left;">${{cuentahabiente.fondos}}</div>
             </div>
         </div>
 </div> 
 </div>
-
-<!-- <div class="container">
-    <a class="btn btn-primary" [routerLink]="['/movimientos']">Movimientos</a>
-    <a class="btn btn-primary" [routerLink]="['/pagos']">Pagos y Transferencias</a>
-    <h2>Saldo: ${{cuentahabiente.fondos}}</h2>
-</div> -->

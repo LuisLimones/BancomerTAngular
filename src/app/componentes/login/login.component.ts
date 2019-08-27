@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
     password: ''
   }
   ngOnInit() {
+    if(localStorage.getItem('token')){
+      this.router.navigate(['/principal']);
+    }
   }
 
   logearte(){
@@ -25,9 +28,13 @@ export class LoginComponent implements OnInit {
       let token=data.token;
       if(token != null){
         localStorage.setItem('token', token);
+        localStorage.setItem('navbar', "true");
+        localStorage.setItem('ca', this.datos.tarjeta);
+        this.bs.conectar(this.datos.tarjeta);
         this.toastr.success('Bienvenido', '', {
           timeOut: 5000
         })
+        this.router.navigate(['/principal']);
       }
       else{
         this.toastr.error('Usuario O Contraseña Invalidos');
@@ -38,6 +45,4 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
-
 }
