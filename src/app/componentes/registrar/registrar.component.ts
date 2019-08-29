@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Cuentahabiente } from '../../modelos/cuentahabiente';
 import { BancaService } from '../../servicios/banca.service';
 import { Router } from '@angular/router';
@@ -9,9 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './registrar.component.html',
   styleUrls: ['./registrar.component.css']
 })
-export class RegistrarComponent implements OnInit {
+export class RegistrarComponent implements OnInit, OnDestroy {
 
-  constructor(private servicio: BancaService, private router: Router,
+  constructor(private bs: BancaService, private router: Router,
     private toastr: ToastrService) { }
 
   cuentahabiente: Cuentahabiente={
@@ -26,11 +26,15 @@ export class RegistrarComponent implements OnInit {
     fondos: null
   };
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.bs.conectar(localStorage.getItem('ca'));
+  }
+  async ngOnDestroy(){
+    await this.bs.cerrarConexion(localStorage.getItem('ca'));
   }
 
   submitRegistrar(){
-    this.servicio.postRegistrar(this.cuentahabiente).subscribe(data=>{
+    this.bs.postRegistrar(this.cuentahabiente).subscribe(data=>{
       if(data.tarjeta!=null){
         this.toastr.success('Su Numero De Cuenta Es '+data.tarjeta, '', {
           timeOut: 10000

@@ -12,11 +12,11 @@ import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [
-  {path: 'principal', component: PrincipalComponent},
-  {path: 'registrar', component: RegistrarComponent},
+  {path: 'principal', component: PrincipalComponent, canActivate:[AuthGuard]},
+  {path: 'registrar', component: RegistrarComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'pagos', component: TransferenciaComponent},
-  {path: 'movimientos', component: MovimientosComponent},
+  {path: 'pagos', component: TransferenciaComponent, canActivate:[AuthGuard]},
+  {path: 'movimientos', component: MovimientosComponent, canActivate:[AuthGuard]},
   {path: '', component: LoginComponent },
   {path: '**', redirectTo: "" }
  

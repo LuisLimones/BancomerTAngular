@@ -21,24 +21,28 @@ export class TransferenciaComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   }
-  ngOnDestroy(){
+  async ngOnDestroy(){
     this.bs.cerrarConexion(localStorage.getItem('ca2'));
+    console.log('Llega onDestroy');
+    localStorage.removeItem('ca2');
   }
 
   submitPagos(){
     this.bs.postPagos(this.datos).subscribe(data => {
-      if(data.id != null){
+      if(data){
         this.toastr.success('TransaccionExitosa', '',{
-          timeOut: 5000
+          timeOut: 2000
         });
         localStorage.setItem('ca2', this.datos.receptor);
-        this.bs.conectar(localStorage.getItem('ca2'));
         this.datos = {
           tipo: "Pago",
           receptor: '',
           concepto: '',
           cantidad: ''
         }
+        this.bs.conectar(localStorage.getItem('ca2'));
+        this.bs.wsMovimientos(localStorage.getItem('ca2'),data);
+        this.bs.wsNotificacion(localStorage.getItem('ca2'), data);
       }
       else{
         this.toastr.error('Ocurrio Un Error', '', { timeOut: 5000});

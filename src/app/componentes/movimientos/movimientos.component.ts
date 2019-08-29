@@ -27,13 +27,11 @@ export class MovimientosComponent implements OnInit {
     fondos: 0
   };
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getCuentahabiente();
+    this.bs.getSocket(localStorage.getItem('ca'));
     this.getMovimientos();
-  }
-
-  getMovimientos(){
-    this.bs.getMovimientos().subscribe(data => {
+    this.bs.movimientosActuales.subscribe(data => {
       if(data != null){
         this.movimientos=data;
         this.movimientos.forEach(element => {
@@ -43,7 +41,16 @@ export class MovimientosComponent implements OnInit {
         });
       }
       else{
-        this.toastr.error('No Tiene Movimientos','',{ timeOut:5000});
+        this.toastr.error('No Tiene Movimientos','',{ timeOut:2000});
+      }
+    })
+    
+  }
+
+  getMovimientos(){
+    this.bs.getMovimientos().subscribe(data => {
+      if(data != null){
+        this.bs.actulizarMovimientos(data);
       }
     });
   }

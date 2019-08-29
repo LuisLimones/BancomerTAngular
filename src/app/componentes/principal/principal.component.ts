@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BancaService } from '../../servicios/banca.service';
 import { Cuentahabiente } from '../../modelos/cuentahabiente'
+import Ws from '@adonisjs/websocket-client';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-principal',
@@ -9,7 +11,7 @@ import { Cuentahabiente } from '../../modelos/cuentahabiente'
 })
 export class PrincipalComponent implements OnInit {
 
-  constructor(private bs: BancaService) { }
+  constructor(private bs: BancaService, private toastr: ToastrService) { }
 
   cuentahabiente:Cuentahabiente ={
     id: 0,
@@ -23,12 +25,20 @@ export class PrincipalComponent implements OnInit {
     fondos: 0
   };
 
-  ngOnInit() {
+  async ngOnInit() {
     this.getCuentahabiente();
+    this.bs.conectar(localStorage.getItem('ca'));
   }
 
   getCuentahabiente(){
-    this.bs.getActual().subscribe(data => this.cuentahabiente = data);
+    this.bs.getActual().subscribe(data => {
+      console.log(data);
+      this.cuentahabiente = data;
+    });
+  }
+
+  pruebaToastr(){
+    this.bs.pruebaToastr();
   }
 
 }

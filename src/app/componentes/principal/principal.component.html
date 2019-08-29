@@ -6,14 +6,15 @@
              <h3>¿Que deseas hacer?</h3>
 <button type="button" class="btn btn-style btn-primary" [routerLink]="['/movimientos']">Movimientos</button><br><br>
 <button type="button" class="btn btn-style btn-primary" [routerLink]="['/pagos']">Tranferencia  y Pagos</button><br><br>
+<button type="button" class="btn btn-primary" (click)="pruebaToastr()">Prueba Toastr</button>
 </div> 
 <div class="col-4">
      <div class="card-container">
         <div class="card">
-                <div class="card-header" style="background-color: red; color:white;">Saldo de cuenta</div>
-                <div class="card-body">Tu saldo actual es de:</div> 
-                <div class="card-footer" style="text-align:left;">${{cuentahabiente.fondos}}</div>
-            </div>
+            <div class="card-header" style="background-color: red; color:white;">Saldo de cuenta</div>
+            <div class="card-body">Tu saldo actual es de:</div> 
+            <div class="card-footer" style="text-align:left;">${{cuentahabiente.fondos}}</div>
         </div>
+    </div>
 </div> 
 </div>

@@ -5,7 +5,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">Tipo</th>
             <th scope="col">Concepto</th>
-            <th scope="col">Razon</th>
+            <th scope="col">Beneficiario</th>
             <th scope="col">Cantidad</th>
         </thead>
         <tbody>
@@ -15,7 +15,8 @@
                 <td>{{mov.concepto}}</td>
                 <td *ngIf="mov.abonante != cuentahabiente.nombre">{{mov.abonante}}</td>
                 <td *ngIf="mov.receptor != cuentahabiente.nombre">{{mov.receptor}}</td>
-                <td>${{mov.cantidad}}</td>
+                <td *ngIf="mov.abonante != cuentahabiente.nombre" style="color: green">+${{mov.cantidad}}</td>
+                <td *ngIf="mov.receptor != cuentahabiente.nombre" style="color: red">-${{mov.cantidad}}</td>
             </tr>
         </tbody>
     </table>

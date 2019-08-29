@@ -16,14 +16,7 @@ export class AuthGuard implements CanActivate{
       this.condicion=data.respuesta;
     });
     if(localStorage.getItem('token')){
-      if(this.condicion){
         return true;
-      }
-      else{
-        localStorage.removeItem('token');
-        alert('Error De Autenticacion\nVuelva A Iniciar Sesion');
-        this.router.navigate(['/login']);
-      }
     }
     else{
       alert('Por Favor Inicie Sesion');
