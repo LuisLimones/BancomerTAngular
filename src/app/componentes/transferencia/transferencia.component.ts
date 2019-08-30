@@ -27,27 +27,36 @@ export class TransferenciaComponent implements OnInit, OnDestroy {
     localStorage.removeItem('ca2');
   }
 
-  submitPagos(){
-    this.bs.postPagos(this.datos).subscribe(data => {
-      if(data){
-        this.toastr.success('TransaccionExitosa', '',{
-          timeOut: 2000
-        });
-        localStorage.setItem('ca2', this.datos.receptor);
-        this.datos = {
-          tipo: "Pago",
-          receptor: '',
-          concepto: '',
-          cantidad: ''
+  async submitPagos(){
+    if(this.datos.receptor != localStorage.getItem('ca')){
+      this.bs.postPagos(this.datos).subscribe(data => {
+        if(data){
+          this.toastr.success('TransaccionExitosa', '',{
+            timeOut: 2000
+          });
+          localStorage.setItem('ca2', this.datos.receptor);
+          this.datos = {
+            tipo: "Pago",
+            receptor: '',
+            concepto: '',
+            cantidad: ''
+          }
+          this.bs.conectar(localStorage.getItem('ca2'));
+          this.bs.wsMovimientos(localStorage.getItem('ca2'),data);
+          this.bs.wsNotificacion(localStorage.getItem('ca2'), data);
+          this.bs.cerrarConexion(localStorage.getItem('ca2'));
         }
-        this.bs.conectar(localStorage.getItem('ca2'));
-        this.bs.wsMovimientos(localStorage.getItem('ca2'),data);
-        this.bs.wsNotificacion(localStorage.getItem('ca2'), data);
-      }
-      else{
-        this.toastr.error('Ocurrio Un Error', '', { timeOut: 5000});
-      }
-    });
+        else{
+          this.toastr.error('Ocurrio Un Error', '', { timeOut: 5000});
+        }
+      });
+    }
+    else{
+      this.datos.receptor=='';
+      this.toastr.error('No puedes trasnferirte a ti mismo', '', {
+        timeOut: 2000
+      })
+    }
   }
 
 }

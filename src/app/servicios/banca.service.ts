@@ -117,9 +117,9 @@ export class BancaService {
       console.log(error)
     }
   }
-  pruebaToastr(){
-    console.log("Llega prueba toastr");
-    this.toastr.success('Funciona', '', {timeOut: 2000});
+
+  wsClose(){
+    ws.close();
   }
 }
 

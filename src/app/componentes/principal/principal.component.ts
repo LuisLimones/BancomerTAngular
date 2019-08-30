@@ -37,8 +37,6 @@ export class PrincipalComponent implements OnInit {
     });
   }
 
-  pruebaToastr(){
-    this.bs.pruebaToastr();
-  }
+  
 
 }

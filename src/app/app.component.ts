@@ -16,7 +16,8 @@ export class AppComponent {
   logout(){
     localStorage.removeItem('token');
     console.log(localStorage.getItem('ca'));
-    this.bs.cerrarConexion(localStorage.getItem('ca'));
+    this.bs.wsClose();
+    //this.bs.cerrarConexion(localStorage.getItem('ca'));
     localStorage.removeItem('ca');
     localStorage.removeItem('navbar');
     this.router.navigate(['/']);
